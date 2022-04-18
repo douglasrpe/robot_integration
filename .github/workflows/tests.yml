@@ -26,6 +26,8 @@ jobs:
               -e BROWSER=chrome \
               ppodgorsek/robot-framework:latest
             
+        - run: pwd
+        - run: ${PWD}
         - run: ls -lah
         - run: echo ${GITHUB_WORKSPACE}
         - run: ls -lah
@@ -33,7 +35,6 @@ jobs:
         - run: |
             cd reports
             ls -lah
-        - run: ${PWD}
         - name: Upload test results
           uses: actions/upload-artifact@v1
           if: always()
