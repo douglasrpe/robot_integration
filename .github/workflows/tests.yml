@@ -33,7 +33,7 @@ jobs:
             pip3 --version
             pip --version
             echo $RUNNER_WORKSPACE
-            whoiam
+            whoami
             env
             df
             
