@@ -31,6 +31,8 @@ jobs:
         - run: ls -lah
         - run: echo $GITHUB_WORKSPACE
         - run: ls -lah
+          working-directory: reports
+        - run: ls -lah
           working-directory: /$GITHUB_WORKSPACE/reports
         - run: |
             cd reports
