@@ -17,7 +17,8 @@ jobs:
             BROWSER: chrome
             ROBOT_TESTS_DIR: ${{ github.workspace }}/robot_tests
             ROBOT_REPORTS_DIR: ${{ github.workspace }}/reports
-        - run: ls
+        - run: | 
+            ls
             pwd
             ls -lah
             
