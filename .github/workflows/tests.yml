@@ -26,7 +26,15 @@ jobs:
               -e BROWSER=chrome \
               ppodgorsek/robot-framework:latest
             
+        - run: ls -lah
         
+        - name: Upload test results
+          uses: actions/upload-artifact@v1
+          if: always()
+          with:
+            name: reports
+            path: ${GITHUB_WORKSPACE}/reports
+            
         #- name: Execute tests
         #  uses: joonvena/robotframework-docker-action@v0.1
         #  env:
