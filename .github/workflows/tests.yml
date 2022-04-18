@@ -11,18 +11,38 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v3
+        
+        - name: Create folder for reports
+          run: mkdir reports
+        #- name: Robot Framework Test
+          # NOTE: joonvena/robotframework-docker-action@v0.1 had permissions issue
+          # This action is based on a Docker image. I had to fall back to that image
+          # and use --user flag
+          #run: |
+          #  docker run \
+          #    -v ${PWD}/reports:/opt/robotframework/reports:Z \
+          #    -v $/tests_e2e:/opt/robotframework/tests:Z \
+          #    --user $(id -u):$(id -g) \
+          #    -e BROWSER=chrome \
+          #    ppodgorsek/robot-framework:latest
+        - run: |
+            ls -a
+            java -version
+            python --version
+            python3 --version
+            pip3 --version
+            pip --version
+            echo $RUNNER_WORKSPACE
+            whoiam
+            env
+            df
+            
+        
         #- name: Execute tests
         #  uses: joonvena/robotframework-docker-action@v0.1
         #  env:
         #    BROWSER: chrome
         #    ROBOT_TESTS_DIR: ${{ github.workspace }}/robot_tests
         #    ROBOT_REPORTS_DIR: ${{ github.workspace }}/reports
-        - run: ls
-          name: Testing
-          
-        - name: Multi-line command
-          run: | 
-            ls
-            pwd
-            ls -lah
+
             
