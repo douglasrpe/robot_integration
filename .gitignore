@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# robot
+log.html
+output.xml
+report.html
+.vscode
+browser/
+playwright-log.txt
+.DS_Store
