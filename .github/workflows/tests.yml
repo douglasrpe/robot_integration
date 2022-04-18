@@ -27,7 +27,7 @@ jobs:
               ppodgorsek/robot-framework:latest
             
         - run: pwd
-        - run: $PWD
+        #- run: $PWD
         - run: ls -lah
         - run: echo $GITHUB_WORKSPACE
         - run: ls -lah
