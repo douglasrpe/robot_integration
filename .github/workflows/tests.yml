@@ -27,7 +27,12 @@ jobs:
               ppodgorsek/robot-framework:latest
             
         - run: ls -lah
-        
+        - run: ls -lah
+          working-directory: ${GITHUB_WORKSPACE}/reports
+        - run: |
+            cd reports
+            ls -lah
+        - run: ${PWD}
         - name: Upload test results
           uses: actions/upload-artifact@v1
           if: always()
