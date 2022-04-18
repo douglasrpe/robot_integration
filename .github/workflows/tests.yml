@@ -27,6 +27,7 @@ jobs:
               ppodgorsek/robot-framework:latest
             
         - run: ls -lah
+        - run: echo ${GITHUB_WORKSPACE}
         - run: ls -lah
           working-directory: /${GITHUB_WORKSPACE}/reports
         - run: |
