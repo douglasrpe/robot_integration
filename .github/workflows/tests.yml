@@ -28,7 +28,7 @@ jobs:
             
         - run: ls -lah
         - run: ls -lah
-          working-directory: ${GITHUB_WORKSPACE}/reports
+          working-directory: /${GITHUB_WORKSPACE}/reports
         - run: |
             cd reports
             ls -lah
@@ -38,7 +38,7 @@ jobs:
           if: always()
           with:
             name: reports
-            path: ${GITHUB_WORKSPACE}/reports
+            path: /${GITHUB_WORKSPACE}/reports
             
         #- name: Execute tests
         #  uses: joonvena/robotframework-docker-action@v0.1
