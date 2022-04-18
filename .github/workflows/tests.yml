@@ -33,7 +33,7 @@ jobs:
         - run: ls -lah
           working-directory: reports
         - run: ls -lah
-          working-directory: /${{env.GITHUB_WORKSPACE}}/reports
+          working-directory: /$GITHUB_WORKSPACE/reports
         - run: |
             cd reports
             ls -lah
