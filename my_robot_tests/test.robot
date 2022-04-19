@@ -7,7 +7,7 @@ Test
     [Documentation]    ae
     New Page    https://playwright.dev
     Take Screenshot
-    Sleep    5
+    Sleep    1
 
     Log TO CONSOLE    Testing
     FOR    ${i}    IN RANGE    1    10
@@ -16,3 +16,8 @@ Test
             LOG    AE
         END
     END
+
+
+Test 2
+    [Documentation]    This is another test case
+    Fail    falhei!
