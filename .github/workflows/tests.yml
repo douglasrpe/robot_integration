@@ -44,11 +44,17 @@ jobs:
             name: reports
             path: reports
             
-        #- name: Execute tests
-        #  uses: joonvena/robotframework-docker-action@v0.1
-        #  env:
-        #    BROWSER: chrome
-        #    ROBOT_TESTS_DIR: ${{ github.workspace }}/robot_tests
-        #    ROBOT_REPORTS_DIR: ${{ github.workspace }}/reports
+    generate_report:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Download reports
+          uses: actions/download-artifact@v1
+          with:
+            name: reports
+        - name: Send report to commit
+          uses: joonvena/robotframework-reporter-action@v2
+          with:
+            gh_access_token: ${{ secrets.GITHUB_TOKEN }}
 
             
