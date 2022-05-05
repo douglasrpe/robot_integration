@@ -34,3 +34,4 @@ ${pfizer_medical_link}              helix-core-button[href='/pfizer-medical']
 
 # Footer
 ${footer_patient_link}              //u[contains(text(),"Patient Assistance Programs")]
+${footer_terms_of_use}              //u[contains(text(),"Terms of Use")]

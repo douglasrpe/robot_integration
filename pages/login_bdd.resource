@@ -48,7 +48,7 @@ The url '${page_url}' is opened in a new tab
 There are '${number_tabs}' tabs currently opened
     #Wait New Tab to Appear
     #Sleep 2
-    Switch page    NEW
+    #Switch page    NEW
     ${current_tabs}=    Get Page Ids
     ${current_tabs_no}=    Get Length    ${current_tabs}
     Should be True    '${current_tabs_no}'=='${number_tabs}'

@@ -11,8 +11,8 @@ Scenario: Navigate to Products page through header
     When I click on '${menubar_products}'
     Then The page url is 'https://www.pfizerpro.com/products'
     When I click on '${product_list_firstB_HCPSite}'
-    Then There are '2' tabs currently opened
-    #Then The url 'https://benefix.pfizerpro.com/' is opened in a new tab
+    Then The url 'https://benefix.pfizerpro.com/' is opened in a new tab
+    And There are '2' tabs currently opened
 
 Scenario: Navigate to Order sub menu through header
     When I hover over '${menubar_item_order}'
@@ -38,3 +38,9 @@ Scenario: Navigate to Explore Contents -> Videos
 Scenario: Scroll to footer and check any text
     When I scroll to element '${footer_patient_link}'
     Then The element '${footer_patient_link}' text is "Patient Assistance Programs"
+
+Scenario: Navigate to link at the footer
+    When I scroll to element '${footer_terms_of_use}'
+    And I click on '${footer_terms_of_use}'
+    Then The url 'https://www.pfizer.com/general/terms' is opened in a new tab
+    Then There are '2' tabs currently opened
