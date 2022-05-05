@@ -12,3 +12,10 @@ Wait New Tab to Appear
         ${diff_tabs_no}=    Get Length    ${current_tabs}
         Sleep    0.2s
     END
+
+Click Javascript
+    [Arguments]    ${css_selector}
+    Evaluate javascript    ${css_selector}
+    ...    (elem) => {
+    ...        elem.click();
+    ...    }

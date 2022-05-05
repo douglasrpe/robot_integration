@@ -11,9 +11,15 @@ I am on the url '${page_url}'
     New Page    ${page_url}
     Set Strict Mode    False
     Set Browser Timeout    10s
+    Sleep    5
 
 I click on '${selector}'
-    Click    ${selector}
+    # It tries to click using the virtual mouse, if fails, tries to click using javascript
+    TRY
+        Click    ${selector}
+    EXCEPT
+        Click Javascript    ${selector}
+    END
     TRY
         Wait Until Network Is Idle    timeout=10s
     EXCEPT
