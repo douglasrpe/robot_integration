@@ -58,7 +58,10 @@ I select the value '${dropdown_value}' from dropdown '${list_selector}'
     #Select options by    ${list_selector}    text    ${dropdown_value}
     Click    ${list_selector} >> text=${dropdown_value}
 
-The element '${selector}' text is "${expected_text}"
+I set text '${text}' to field '${selector}'
+    Fill Text    ${selector}    ${text}
+
+The element '${selector}' text is '${expected_text}'
     #Set Assertion Formatters    {"Get Text": ["strip", "normalize spaces"]}
     ${selector_text}=    Get Text    ${selector}
     # It was detected that there are special character in the get text

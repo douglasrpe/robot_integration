@@ -6,6 +6,11 @@ Test Setup          I am on the url 'https://www.pfizerpro.com/'
 Test Teardown       Close browser
 
 
+*** Variables ***
+${PFIZERPRO_USER}                   testpfizer@pfizer.com
+${PFIZERPRO_INVALID_PASSWORD}       this_is_an_invalid_password
+
+
 *** Test Cases ***
 Scenario: Navigate to Products page through header
     When I click on '${menubar_products}'
@@ -37,10 +42,17 @@ Scenario: Navigate to Explore Contents -> Videos
 
 Scenario: Scroll to footer and check any text
     When I scroll to element '${footer_patient_link}'
-    Then The element '${footer_patient_link}' text is "Patient Assistance Programs"
+    Then The element '${footer_patient_link}' text is 'Patient Assistance Programs'
 
 Scenario: Navigate to link at the footer
     When I scroll to element '${footer_terms_of_use}'
     And I click on '${footer_terms_of_use}'
     Then The url 'https://www.pfizer.com/general/terms' is opened in a new tab
     Then There are '2' tabs currently opened
+
+Scenario: Invalid User Login flow
+    When I click on '${menubar_login}'
+    And I set text '${PFIZERPRO_USER}' to field '${login_email_input}'
+    And I set text '${PFIZERPRO_INVALID_PASSWORD}' to field '${login_password_input}'
+    And I click on '${login_button}'
+    Then The element '${login_invalid_msg}' text is 'Username and password doesnt match. Try again.'

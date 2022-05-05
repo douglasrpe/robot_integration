@@ -9,6 +9,7 @@ ${menubar_item_explore_content}     ${menubar_item} > helix-core-button[href="/e
 ${menubar_products}                 helix-core-button[href="/products"]
 ${menubar_order}                    helix-core-button[href="/order"]
 ${menubar_order_materials}          helix-core-button[href="/materials"]
+${menubar_login}                    helix-core-button[has-modal-query-string="signin"]
 
 # Home Page
 ${explore_content_container}        //helix-core-band[2]
@@ -35,3 +36,9 @@ ${pfizer_medical_link}              helix-core-button[href='/pfizer-medical']
 # Footer
 ${footer_patient_link}              //u[contains(text(),"Patient Assistance Programs")]
 ${footer_terms_of_use}              //u[contains(text(),"Terms of Use")]
+
+# Login Page
+${login_email_input}                css=#email
+${login_password_input}             css=#password
+${login_button}                     helix-button[value='Log in']
+${login_invalid_msg}                css=#invalid-login
