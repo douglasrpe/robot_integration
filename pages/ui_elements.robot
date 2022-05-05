@@ -31,3 +31,6 @@ ${explore_go_button}                ${container_picker} button:nth-child(1)
 
 # Medical Page
 ${pfizer_medical_link}              helix-core-button[href='/pfizer-medical']
+
+# Footer
+${footer_patient_link}              //u[contains(text(),"Patient Assistance Programs")]

@@ -1,5 +1,6 @@
 *** Settings ***
 Library     Browser
+Library     String
 Resource    ../utils/browser_extended.robot
 
 
@@ -33,6 +34,9 @@ I hover over '${selector}'
 I expect that the title is '${page_title}'
     Get Title    equal    ${page_title}
 
+I scroll to element '${selector}'
+    Scroll To Element    ${selector}
+
 The page url is '${page_url}'
     Get Url    equal    ${page_url}
 
@@ -53,3 +57,10 @@ I select the value '${dropdown_value}' from dropdown '${list_selector}'
     #This keyword below cannot be used because the element is not <select> tag. It is helix-dropdown-item
     #Select options by    ${list_selector}    text    ${dropdown_value}
     Click    ${list_selector} >> text=${dropdown_value}
+
+The element '${selector}' text is "${expected_text}"
+    #Set Assertion Formatters    {"Get Text": ["strip", "normalize spaces"]}
+    ${selector_text}=    Get Text    ${selector}
+    # It was detected that there are special character in the get text
+    ${selector_text}=    Replace String    ${selector_text}    \u200b    ${EMPTY}
+    Should Be Equal    ${selector_text}    ${expected_text}

@@ -35,3 +35,6 @@ Scenario: Navigate to Explore Contents -> Videos
     And I click on '${explore_go_button}'
     Then The page url is 'https://transthyretinamyloidcardiomyopathy.pfizerpro.com/videos'
 
+Scenario: Scroll to footer and check any text
+    When I scroll to element '${footer_patient_link}'
+    Then The element '${footer_patient_link}' text is "Patient Assistance Programs"
