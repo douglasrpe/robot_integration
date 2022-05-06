@@ -16,3 +16,4 @@ jobs:
       run: |
         echo $(id -u):$(id -g)
         cat /etc/passwd
+        whoiam
