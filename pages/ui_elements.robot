@@ -1,5 +1,6 @@
 *** Variables ***
 # MenuBar with cascate example
+${text_welcome_pfizer_pro}          //helix-core-heading[contains(text(),"Welcome")]
 ${menubar}                          //helix-core-menu
 ${menubar_item}                     ${menubar} >> helix-core-menu-item
 ${menubar_item_products}            ${menubar_item} > helix-core-button[href="/products"]
@@ -42,3 +43,4 @@ ${login_email_input}                css=#email
 ${login_password_input}             css=#password
 ${login_button}                     helix-button[value='Log in']
 ${login_invalid_msg}                css=#invalid-login
+${logout_button}                    //*[@data-grv-action="logout"]

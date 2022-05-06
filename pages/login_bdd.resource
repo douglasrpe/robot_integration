@@ -58,8 +58,13 @@ I select the value '${dropdown_value}' from dropdown '${list_selector}'
     #Select options by    ${list_selector}    text    ${dropdown_value}
     Click    ${list_selector} >> text=${dropdown_value}
 
+I type text '${text}' in the input field '${selector}'
+    I set text '${text}' to field '${selector}'
 I set text '${text}' to field '${selector}'
     Fill Text    ${selector}    ${text}
+
+I press '${key:[^']+}'
+    Keyboard Key    press    ${key}
 
 The element '${selector}' text is '${expected_text}'
     #Set Assertion Formatters    {"Get Text": ["strip", "normalize spaces"]}
@@ -67,3 +72,7 @@ The element '${selector}' text is '${expected_text}'
     # It was detected that there are special character in the get text
     ${selector_text}=    Replace String    ${selector_text}    \u200b    ${EMPTY}
     Should Be Equal    ${selector_text}    ${expected_text}
+
+I press '${key}' focused over '${selector}'
+    Press Keys    ${selector}    ${key}
+

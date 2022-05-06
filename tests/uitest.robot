@@ -9,6 +9,7 @@ Test Teardown       Close browser
 *** Variables ***
 ${PFIZERPRO_USER}                   testpfizer@pfizer.com
 ${PFIZERPRO_INVALID_PASSWORD}       this_is_an_invalid_password
+${PFIZERPRO_PASSWORD}               Password@1
 
 
 *** Test Cases ***
@@ -56,3 +57,22 @@ Scenario: Invalid User Login flow
     And I set text '${PFIZERPRO_INVALID_PASSWORD}' to field '${login_password_input}'
     And I click on '${login_button}'
     Then The element '${login_invalid_msg}' text is 'Username and password doesnt match. Try again.'
+
+Scenario: Login and logout flow
+    When I click on '${menubar_login}'
+    And I type text '${PFIZERPRO_USER}' in the input field '${login_email_input}'
+    And I press 'Tab'
+    And I type text '${PFIZERPRO_PASSWORD}' in the input field '${login_password_input}'
+    And I press 'Tab'
+    And I press 'Enter' focused over '${login_button}'
+    Then The page is redirect to homepage
+    And I expect that the title is 'Home | Pfizer For Professionals'
+    When I click on '${logout_button}'
+    Then The page url is 'https://www.pfizerpro.com/'
+
+
+
+*** Keywords ***
+The page is redirect to homepage
+    Wait For Elements State    ${text_welcome_pfizer_pro}    visible
+    
