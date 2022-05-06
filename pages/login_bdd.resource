@@ -60,6 +60,7 @@ I select the value '${dropdown_value}' from dropdown '${list_selector}'
 
 I type text '${text}' in the input field '${selector}'
     I set text '${text}' to field '${selector}'
+
 I set text '${text}' to field '${selector}'
     Fill Text    ${selector}    ${text}
 
@@ -76,3 +77,30 @@ The element '${selector}' text is '${expected_text}'
 I press '${key}' focused over '${selector}'
     Press Keys    ${selector}    ${key}
 
+I fetch existing cookies from the site
+    ${TEMP_COOKIES}=    Get Cookies
+    # Return not good for BDD
+    Set Test Variable    ${TEMP_COOKIES}
+
+I expect the cookies to be present
+    Should Not Be Empty    ${TEMP_COOKIES}
+
+I update the value of newly added cookie '${name}' with '${value}' for url '${url}'
+    I set the cookie '${name}' with value '${value}' for url '${url}'
+
+I set the cookie '${name}' with value '${value}' for url '${url}'
+    Add Cookie    ${name}    ${value}    ${url}
+
+I expect the value of newly added cookie '${name}' to be updated with '${value}'
+    I expect cookie '${name}' with value '${value}' to be present
+
+I expect cookie '${name}' with value '${value}' to be present
+    ${cookie_dict}=    Get Cookie    ${name}
+    Should Be Equal    ${cookie_dict}[value]    ${value}
+
+I delete the cookie '${name}'
+    Delete All Cookies
+
+I expect cookie '${name}' to be deleted
+    ${cookies}=    Get Cookies
+    Should Be Empty    ${cookies}

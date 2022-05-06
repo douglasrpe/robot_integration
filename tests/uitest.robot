@@ -70,9 +70,23 @@ Scenario: Login and logout flow
     When I click on '${logout_button}'
     Then The page url is 'https://www.pfizerpro.com/'
 
+Scenario: Fetch existing cookies from the site
+    When I fetch existing cookies from the site
+    Then I expect the cookies to be present
+
+Scenario: Add new cookie to the site
+    When I set the cookie 'foo' with value 'bar' for url 'https://www.pfizerpro.com/'
+    Then I expect cookie 'foo' with value 'bar' to be present
+
+Scenario: Update the value of newly added cookie to the site
+    When I update the value of newly added cookie 'foo' with 'baz' for url 'https://www.pfizerpro.com/'
+    Then I expect the value of newly added cookie 'foo' to be updated with 'baz'
+
+Scenario: Delete cookie from the site
+    When I delete the cookie 'foo'
+    Then I expect cookie 'foo' to be deleted
 
 
 *** Keywords ***
 The page is redirect to homepage
     Wait For Elements State    ${text_welcome_pfizer_pro}    visible
-    
